@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Private pitch: keep this out of search engines -->
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Sheep Farm — Investor Pitch</title>
+
+  <!-- Progressive enhancement flag: if JS runs, reveal animations turn on. If not, content stays fully visible. -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Tailwind via CDN (no build step) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg:    '#1C1C1E',
+            bg2:   '#161618',
+            card:  '#2A2A2D',
+            line:  '#3A3A3E',
+            gold:  '#D4A017',
+            gold2: '#E8B73A',
+            ink:   '#F5F5F0',
+            muted: '#A0A0A0',
+            pos:   '#4CAF7D',
+            warn:  '#F59E0B',
+            neg:   '#EF4444',
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        }
+      }
+    };
+  </script>
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* Critical base styles so the dark theme paints instantly (no white flash, even before Tailwind loads) */
+    :root { color-scheme: dark; }
+    html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+    body {
+      background-color: #1C1C1E;
+      color: #F5F5F0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+    }
+    .tnum { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+
+    /* Hide scrollbar on the mobile nav strip */
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+
+    /* Scroll-reveal — only active when JS is present, so no-JS = everything visible */
+    .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .js .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* Active nav link */
+    .navlink { color: #A0A0A0; transition: color .2s ease; }
+    .navlink:hover { color: #F5F5F0; }
+    .navlink.active { color: #D4A017; }
+
+    /* Hero glow */
+    .hero-glow {
+      background:
+        radial-gradient(60% 55% at 50% 0%, rgba(212,160,23,0.16) 0%, rgba(212,160,23,0) 60%),
+        radial-gradient(40% 40% at 85% 30%, rgba(76,175,125,0.08) 0%, rgba(76,175,125,0) 70%);
+    }
+    .gold-text { color: #D4A017; }
+    .icon-tile svg, svg.icon-tile { width: 30px; height: 30px; }
+    .feat-icon svg, svg.feat-icon { width: 22px; height: 22px; }
+  </style>
+</head>
+
+<body class="bg-bg text-ink antialiased selection:bg-gold/30">
+
+  <!-- ===================== SVG ICON SPRITE (inline, zero external loads) ===================== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <g id="ico-defaults"></g>
+      <symbol id="i-shed" viewBox="0 0 24 24"><path d="M3 10.5 12 4l9 6.5M5 9.5V20h14V9.5M9.5 20v-5h5v5M8.3 11 12 8.2 15.7 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-floor" viewBox="0 0 24 24"><path d="M3 11h18M4.5 11 6 15h12l1.5-4M9 15v3.5M12 15v4M15 15v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-slats" viewBox="0 0 24 24"><path d="M4 6h16v12H4zM4 9h16M4 12h16M4 15h16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-trough" viewBox="0 0 24 24"><path d="M3 9v3a4 4 0 0 0 4 4h5a4 4 0 0 0 4-4V9M18.5 5v6M18.5 11l-1.3 2.1a1.3 1.3 0 1 0 2.6 0z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-borewell" viewBox="0 0 24 24"><path d="M3 8h18M9 8v11M13 8v11M9 19h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 12.5c0 1.1.9 2 2 2s2-.9 2-2-2-3.6-2-3.6-2 2.5-2 3.6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-tank" viewBox="0 0 24 24"><path d="M5 4h14v7H5zM5 7h14M8 11v4M16 11v4M7 15h10M12 15v5M10 20h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-fan" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="1.4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 10.6c0-2.6.4-4.4 1.8-4.4s1.7 1.9.2 3.6M13.4 12c2.6 0 4.4.4 4.4 1.8s-1.9 1.7-3.6.2M12 13.4c0 2.6-.4 4.4-1.8 4.4s-1.7-1.9-.2-3.6M10.6 12c-2.6 0-4.4-.4-4.4-1.8s1.9-1.7 3.6-.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-house" viewBox="0 0 24 24"><path d="M4 11 12 5l8 6M6 10v9h12v-9M10.5 19v-5h3v5M8.5 12.5h2.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-warehouse" viewBox="0 0 24 24"><path d="M3 10 12 5l9 5v9H3zM3 10.5V19M21 10.5V19M6.5 15h3.5v4H6.5zM14 15h3.5v4H14z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-feed" viewBox="0 0 24 24"><path d="M3 11h18a9 9 0 0 1-18 0zM8 11c-.3-2 1-3.2 1.4-4.8M12.5 11c-.3-2 1-3.4 1.2-5.2M17 11c-.2-1.6.6-2.6.8-3.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.3-5.9L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.3 5.9L4 16M4 20v-4h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-sheep" viewBox="0 0 24 24"><path d="M7.5 10.5a3 3 0 1 1 .9-5.86A3 3 0 0 1 14 4.8a3 3 0 0 1 3 5 3 3 0 0 1-.5 5.2 3 3 0 0 1-5.5 1.2 3 3 0 0 1-5-1.8 3 3 0 0 1 1.5-4.9z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 14.5v3M14 14.5v3M9 12.2h.01M13 12.2h.01" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M5 5h14v14H5zM5 9h14M9 3v4M15 3v4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6zM9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 4v16h16M8 16v-3M12 16V9M16 16v-6M20 16V7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3h4l1.5 4-2 1.5a11 11 0 0 0 5 5L16.5 11l4 1.5v4a2 2 0 0 1-2.2 2A16 16 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 8.2c-.3 0-.6.1-.8.4-.3.4-.8 1-.8 2 0 1.3.9 2.5 1 2.7.2.2 1.9 3 4.6 4 .9.3 1.6.2 2.1-.1.5-.3.9-.9 1-1.3.1-.4.1-.7 0-.8l-.3-.2-1.6-.8c-.2-.1-.4-.1-.6.1l-.6.8c-.1.1-.3.2-.5.1-.6-.2-1.3-.5-2-1.4-.5-.6-.8-1.2-.9-1.4-.1-.2 0-.3.1-.4l.4-.5c.1-.2.1-.3.2-.5v-.4l-.8-1.7c-.1-.3-.2-.3-.4-.3z" fill="currentColor"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ===================== STICKY NAV ===================== -->
+  <header class="sticky top-0 z-50 border-b border-line/60 bg-bg/80 backdrop-blur-md">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="flex h-16 items-center gap-4">
+        <a href="#overview" class="flex shrink-0 items-center gap-2.5">
+          <span class="grid h-9 w-9 place-items-center rounded-lg bg-gold/15 text-gold ring-1 ring-gold/30">
+            <svg class="feat-icon"><use href="#i-sheep"/></svg>
+          </span>
+          <span class="hidden text-sm font-semibold leading-tight sm:block">KR Kandriga<br><span class="text-muted font-normal">Sheep Farm</span></span>
+        </a>
+        <nav class="no-scrollbar -mx-2 flex flex-1 items-center gap-5 overflow-x-auto whitespace-nowrap px-2 text-sm font-medium sm:justify-end">
+          <a href="#overview"    class="navlink">Overview</a>
+          <a href="#opportunity" class="navlink">The Opportunity</a>
+          <a href="#financials"  class="navlink">Financials</a>
+          <a href="#risk"        class="navlink">Risk</a>
+          <a href="#growth"      class="navlink">Growth</a>
+          <a href="#ask"         class="navlink">The Ask</a>
+          <a href="#contact"     class="navlink">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== SECTION 1 — HERO ===================== -->
+    <section id="overview" class="hero-glow relative overflow-hidden">
+      <div class="mx-auto max-w-5xl px-5 pb-16 pt-16 sm:pt-24">
+        <p class="reveal mb-5 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-3.5 py-1.5 text-xs font-medium tracking-wide text-gold">
+          <span class="h-1.5 w-1.5 rounded-full bg-gold"></span> PRIVATE INVESTOR BRIEF · CONFIDENTIAL
+        </p>
+        <h1 class="reveal max-w-3xl text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl sm:leading-[1.08]">
+          A Commercial Sheep Fattening Business in Andhra Pradesh —
+          <span class="gold-text">Built to Scale</span>
+        </h1>
+        <p class="reveal mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+          Structured around the Sankranti festival demand cycle. TMR-fed. Slatted floor.
+          Self-funded infrastructure. Looking for one partner.
+        </p>
+
+        <!-- Stat pills -->
+        <div class="reveal mt-9 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div class="rounded-2xl border border-gold/25 bg-card/70 p-5">
+            <div class="tnum text-2xl font-extrabold text-gold sm:text-3xl">₹13.35L</div>
+            <div class="mt-1 text-sm text-muted">Total Infrastructure Investment</div>
+          </div>
+          <div class="rounded-2xl border border-gold/25 bg-card/70 p-5">
+            <div class="tnum text-2xl font-extrabold text-gold sm:text-3xl">₹2.45L</div>
+            <div class="mt-1 text-sm text-muted">Projected Batch 1 Net Profit <span class="text-pos">(Good Year)</span></div>
+          </div>
+          <div class="rounded-2xl border border-gold/25 bg-card/70 p-5">
+            <div class="tnum text-2xl font-extrabold text-gold sm:text-3xl">18 Months</div>
+            <div class="mt-1 text-sm text-muted">Estimated CapEx Break-Even</div>
+          </div>
+        </div>
+
+        <!-- Elevator pitch -->
+        <div class="reveal mt-9 max-w-3xl rounded-2xl border border-line bg-card/50 p-6">
+          <p class="text-[15px] leading-relaxed text-ink/90 sm:text-base">
+            This is a semi-intensive commercial sheep fattening unit in <strong class="text-ink">KR Kandriga, Annamayya District, AP</strong>.
+            Lambs are purchased at 4 months, fattened over 100 days on a scientifically formulated dry ration on an elevated
+            slatted floor system, and sold at live weight during the <strong class="text-ink">Sankranti festival window</strong> —
+            the highest-demand meat sales period in Rayalaseema. Infrastructure is already planned and priced. Land is
+            owner-occupied. The business is self-funded. A co-investment partner is being considered for working capital on
+            <strong class="text-ink">Batch 2 and beyond</strong>, when the model scales to full 250-lamb capacity.
+          </p>
+        </div>
+      </div>
+
+      <!-- subtle hills silhouette -->
+      <svg class="pointer-events-none block w-full text-bg2" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" style="height:70px">
+        <path fill="currentColor" d="M0 80 Q 180 30 360 64 T 720 60 T 1080 56 T 1440 70 V120 H0 Z"/>
+      </svg>
+    </section>
+
+    <!-- ===================== SECTION 2 — THE OPPORTUNITY ===================== -->
+    <section id="opportunity" class="bg-bg2/60 py-16 sm:py-20">
+      <div class="mx-auto max-w-6xl px-5">
+        <header class="reveal mb-12 max-w-3xl">
+          <span class="text-xs font-semibold uppercase tracking-widest text-gold">The Opportunity</span>
+          <h2 class="mt-2 text-2xl font-bold sm:text-4xl">Why This Business, Why Now, Why Here</h2>
+        </header>
+
+        <!-- Timing logic -->
+        <div class="reveal mb-12 rounded-2xl border border-line bg-card/50 p-6 sm:p-8">
+          <div class="mb-5 flex items-center gap-3">
+            <span class="feat-icon grid h-10 w-10 place-items-center rounded-lg bg-gold/15 text-gold ring-1 ring-gold/25"><svg><use href="#i-calendar"/></svg></span>
+            <h3 class="text-lg font-semibold sm:text-xl">October In, January Out — The Sankranti Cycle</h3>
+          </div>
+
+          <!-- weight timeline -->
+          <div class="mb-6 grid grid-cols-3 items-center gap-2 rounded-xl border border-line bg-bg/50 p-4 text-center">
+            <div>
+              <div class="text-xs text-muted">October 2027 · IN</div>
+              <div class="tnum mt-1 text-xl font-bold sm:text-2xl">16 kg</div>
+              <div class="text-xs text-muted">avg live weight</div>
+            </div>
+            <div class="flex flex-col items-center text-gold">
+              <div class="text-xs font-semibold text-muted">100-day TMR fattening</div>
+              <svg class="my-1 h-6 w-16"><use href="#i-arrow"/></svg>
+              <div class="text-xs text-pos">winter growth window</div>
+            </div>
+            <div>
+              <div class="text-xs text-muted">January 2028 · OUT</div>
+              <div class="tnum mt-1 text-xl font-bold text-gold sm:text-2xl">31 kg</div>
+              <div class="text-xs text-muted">festival sale</div>
+            </div>
+          </div>
+
+          <ul class="grid gap-2.5 text-sm text-ink/85 sm:grid-cols-2">
+            <li class="flex gap-2.5"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span>Lambs enter in October 2027 at 16 kg average live weight.</li>
+            <li class="flex gap-2.5"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span>100-day TMR cycle runs through winter — ideal growth climate for Rayalaseema valleys.</li>
+            <li class="flex gap-2.5"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span>Animals exit at 31 kg in January 2028, into the Sankranti / Kanuma demand surge.</li>
+            <li class="flex gap-2.5"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span>The highest live meat price window of the year in Andhra Pradesh.</li>
+            <li class="flex gap-2.5 sm:col-span-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span>Structured to hit this window <strong class="text-ink">every year — not occasionally</strong>.</li>
+          </ul>
+        </div>
+
+        <!-- Why TMR + slatted -->
+        <div class="reveal mb-4">
+          <h3 class="mb-1 text-lg font-semibold sm:text-xl">Zero Land Dependency — This Is Not Traditional Farming</h3>
+          <p class="mb-6 text-sm text-muted">Why TMR + slatted floor</p>
+        </div>
+        <div class="reveal mb-12 grid gap-4 md:grid-cols-3">
+          <article class="rounded-2xl border border-line bg-card/60 p-6">
+            <span class="feat-icon mb-4 grid h-11 w-11 place-items-center rounded-lg bg-gold/15 text-gold ring-1 ring-gold/25"><svg><use href="#i-feed"/></svg></span>
+            <h4 class="font-semibold">No Grazing Land Needed</h4>
+            <p class="mt-2 text-sm leading-relaxed text-muted">100% dry Total Mixed Ration feed. No green fodder cultivation. No monsoon dependency. No crop failure risk. Feed is sourced commercially from Tirupati / Nellore mills.</p>
+          </article>
+          <article class="rounded-2xl border border-line bg-card/60 p-6">
+            <span class="feat-icon mb-4 grid h-11 w-11 place-items-center rounded-lg bg-gold/15 text-gold ring-1 ring-gold/25"><svg><use href="#i-slats"/></svg></span>
+            <h4 class="font-semibold">Elevated Slatted Floor</h4>
+            <p class="mt-2 text-sm leading-relaxed text-muted">Animals live on plastic slatted platforms 4 feet above ground. Urine drains away instantly. Manure stays dry. Ammonia buildup eliminated. Disease risk reduced to baseline minimum vs ground-level farming.</p>
+          </article>
+          <article class="rounded-2xl border border-line bg-card/60 p-6">
+            <span class="feat-icon mb-4 grid h-11 w-11 place-items-center rounded-lg bg-gold/15 text-gold ring-1 ring-gold/25"><svg><use href="#i-cycle"/></svg></span>
+            <h4 class="font-semibold">All-In-All-Out System</h4>
+            <p class="mt-2 text-sm leading-relaxed text-muted">Every batch enters and exits together. Between batches: full pressure wash, Formalin disinfection, 7-day dry fallow. No disease carryover. Commercial feedlot logic applied to small ruminants.</p>
+          </article>
+        </div>
+
+        <!-- Why Nellore -->
+        <div class="reveal rounded-2xl border border-gold/25 bg-gradient-to-br from-gold/[0.08] to-transparent p-6 sm:p-8">
+          <div class="mb-4 flex items-center gap-3">
+            <span class="feat-icon grid h-10 w-10 place-items-center rounded-lg bg-gold/15 text-gold ring-1 ring-gold/25"><svg><use href="#i-sheep"/></svg></span>
+            <h3 class="text-lg font-semibold sm:text-xl">Why Nellore Breed</h3>
+          </div>
+          <ul class="grid gap-2.5 text-sm text-ink/85 sm:grid-cols-2">
+            <li class="flex gap-2.5"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span>Purebred Nellore (Jodipi / Brown strain) ram lambs are the premium meat breed of Andhra Pradesh.</li>
+            <li class="flex gap-2.5"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span>Festival buyers — especially Sankranti consumers — specifically seek Nellore genetics.</li>
+            <li class="flex gap-2.5"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span>Sourced from Rajampet and Proddatur shandies, the main Nellore lamb markets in the region.</li>
+            <li class="flex gap-2.5"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span>At 31 kg finish, well-conformed TMR-fed Nellore rams command a <strong class="text-gold">₹30–50/kg premium</strong> over pasture-fed crossbreds.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 3 — FINANCIALS ===================== -->
+    <section id="financials" class="py-16 sm:py-20">
+      <div class="mx-auto max-w-6xl px-5">
+        <header class="reveal mb-6 max-w-3xl">
+          <span class="text-xs font-semibold uppercase tracking-widest text-gold">The Numbers</span>
+          <h2 class="mt-2 text-2xl font-bold sm:text-4xl">Revised Financials — Analyst-Reviewed, Conservative Inputs</h2>
+        </header>
+        <p class="reveal mb-12 max-w-3xl rounded-xl border border-line bg-card/40 p-4 text-sm italic leading-relaxed text-muted">
+          These figures have been reviewed and corrected from an earlier draft. Lamb procurement price, slat costs, and
+          borewell infrastructure have all been revised to reflect realistic 2025–2026 market rates. A contingency buffer is included.
+        </p>
+
+        <!-- CapEx -->
+        <div class="reveal mb-14">
+          <div class="mb-6 flex flex-wrap items-end justify-between gap-3">
+            <h3 class="text-lg font-semibold sm:text-xl">One-Time Infrastructure Investment</h3>
+            <div class="tnum rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-sm font-bold text-gold">Total CapEx · ₹13,35,000</div>
+          </div>
+
+          <!-- Illustrated CapEx gallery: icon + item + price -->
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- item -->
+            <article class="group flex items-center gap-4 rounded-2xl border border-line bg-card/60 p-4 transition-colors hover:border-gold/40">
+              <span class="icon-tile grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-gold/12 text-gold ring-1 ring-gold/20"><svg><use href="#i-shed"/></svg></span>
+              <div class="min-w-0 flex-1">
+                <h4 class="text-sm font-semibold leading-snug">Shed Superstructure</h4>
+                <p class="text-xs text-muted">GI frame, truss, profile roofing</p>
+                <div class="tnum mt-1 text-lg font-bold text-gold">₹3,50,000</div>
+              </div>
+            </article>
+            <article class="group flex items-center gap-4 rounded-2xl border border-line bg-card/60 p-4 transition-colors hover:border-gold/40">
+              <span class="icon-tile grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-gold/12 text-gold ring-1 ring-gold/20"><svg><use href="#i-floor"/></svg></span>
+              <div class="min-w-0 flex-1">
+                <h4 class="text-sm font-semibold leading-snug">Concrete Sloped Sub-Floor</h4>
+                <p class="text-xs text-muted">+ drainage gutters</p>
+                <div class="tnum mt-1 text-lg font-bold text-gold">₹1,20,000</div>
+              </div>
+            </article>
+            <article class="group flex items-center gap-4 rounded-2xl border border-line bg-card/60 p-4 transition-colors hover:border-gold/40">
+              <span class="icon-tile grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-gold/12 text-gold ring-1 ring-gold/20"><svg><use href="#i-slats"/></svg></span>
+              <div class="min-w-0 flex-1">
+                <h4 class="text-sm font-semibold leading-snug">625 PPCP Plastic Slatted Panels</h4>
+                <p class="text-xs text-muted">2×2 ft, 70 mm</p>
+                <div class="tnum mt-1 text-lg font-bold text-gold">₹3,50,000</div>
+              </div>
+            </article>
+            <article class="group flex items-center gap-4 rounded-2xl border border-line bg-card/60 p-4 transition-colors hover:border-gold/40">
+              <span class="icon-tile grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-gold/12 text-gold ring-1 ring-gold/20"><svg><use href="#i-trough"/></svg></span>
+              <div class="min-w-0 flex-1">
+                <h4 class="text-sm font-semibold leading-snug">Feeding Troughs + 25 Nipple Drinkers</h4>
+                <p class="text-xs text-muted">automatic watering</p>
+                <div class="tnum mt-1 text-lg font-bold text-gold">₹60,000</div>
+              </div>
+            </article>
+            <article class="group flex items-center gap-4 rounded-2xl border border-line bg-card/60 p-4 transition-colors hover:border-gold/40">
+              <span class="icon-tile grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-gold/12 text-gold ring-1 ring-gold/20"><svg><use href="#i-borewell"/></svg></span>
+              <div class="min-w-0 flex-1">
+                <h4 class="text-sm font-semibold leading-snug">Borewell Sinking + Casing</h4>
+                <p class="text-xs text-muted">300 ft depth</p>
+                <div class="tnum mt-1 text-lg font-bold text-gold">₹75,000</div>
+              </div>
+            </article>
+            <article class="group flex items-center gap-4 rounded-2xl border border-line bg-card/60 p-4 transition-colors hover:border-gold/40">
+              <span class="icon-tile grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-gold/12 text-gold ring-1 ring-gold/20"><svg><use href="#i-tank"/></svg></span>
+              <div class="min-w-0 flex-1">
+                <h4 class="text-sm font-semibold leading-snug">Submersible Pump + Overhead Tank</h4>
+                <p class="text-xs text-muted">5,000 L storage</p>
+                <div class="tnum mt-1 text-lg font-bold text-gold">₹55,000</div>
+              </div>
+            </article>
+            <article class="group flex items-center gap-4 rounded-2xl border border-line bg-card/60 p-4 transition-colors hover:border-gold/40">
+              <span class="icon-tile grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-gold/12 text-gold ring-1 ring-gold/20"><svg><use href="#i-fan"/></svg></span>
+              <div class="min-w-0 flex-1">
+                <h4 class="text-sm font-semibold leading-snug">6 Exhaust Fans + LED + Inverter</h4>
+                <p class="text-xs text-muted">ventilation & backup power</p>
+                <div class="tnum mt-1 text-lg font-bold text-gold">₹55,000</div>
+              </div>
+            </article>
+            <article class="group flex items-center gap-4 rounded-2xl border border-line bg-card/60 p-4 transition-colors hover:border-gold/40">
+              <span class="icon-tile grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-gold/12 text-gold ring-1 ring-gold/20"><svg><use href="#i-house"/></svg></span>
+              <div class="min-w-0 flex-1">
+                <h4 class="text-sm font-semibold leading-snug">Live-In Caretaker Quarters</h4>
+                <p class="text-xs text-muted">brick, tiled bathroom</p>
+                <div class="tnum mt-1 text-lg font-bold text-gold">₹1,60,000</div>
+              </div>
+            </article>
+            <article class="group flex items-center gap-4 rounded-2xl border border-line bg-card/60 p-4 transition-colors hover:border-gold/40">
+              <span class="icon-tile grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-gold/12 text-gold ring-1 ring-gold/20"><svg><use href="#i-warehouse"/></svg></span>
+              <div class="min-w-0 flex-1">
+                <h4 class="text-sm font-semibold leading-snug">TMR Feed Warehouse</h4>
+                <p class="text-xs text-muted">dry storage, moisture-sealed</p>
+                <div class="tnum mt-1 text-lg font-bold text-gold">₹1,10,000</div>
+              </div>
+            </article>
+          </div>
+
+          <!-- total bar -->
+          <div class="mt-4 flex items-center justify-between rounded-2xl border border-gold/40 bg-gold/10 px-6 py-4">
+            <span class="font-semibold uppercase tracking-wide text-gold">Total CapEx</span>
+            <span class="tnum text-2xl font-extrabold text-gold">₹13,35,000</span>
+          </div>
+          <p class="mt-3 text-xs italic text-muted">
+            Land is owner-occupied. No lease cost. Borewell water availability confirmed — strong local water table, hill catchment surroundings.
+          </p>
+        </div>
+
+        <!-- OpEx -->
+        <div class="reveal mb-14">
+          <div class="mb-6 flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <h3 class="text-lg font-semibold sm:text-xl">Batch 1 Working Capital</h3>
+              <p class="text-sm text-muted">100 lambs over 100 days</p>
+            </div>
+            <div class="tnum rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-sm font-bold text-gold">Total OpEx · ₹11,87,000</div>
+          </div>
+
+          <div class="overflow-hidden rounded-2xl border border-line">
+            <table class="w-full text-sm">
+              <tbody class="divide-y divide-line">
+                <tr class="bg-card/40"><td class="px-4 py-3.5">Lamb Procurement <span class="text-muted">(100 × 16 kg × ₹520/kg)</span></td><td class="tnum px-4 py-3.5 text-right font-semibold">₹8,32,000</td></tr>
+                <tr class="bg-card/20"><td class="px-4 py-3.5">Sourcing Logistics <span class="text-muted">(agent, transport)</span></td><td class="tnum px-4 py-3.5 text-right font-semibold">₹35,000</td></tr>
+                <tr class="bg-card/40"><td class="px-4 py-3.5">TMR Feed <span class="text-muted">(11,000 kg × ₹24/kg)</span></td><td class="tnum px-4 py-3.5 text-right font-semibold">₹2,64,000</td></tr>
+                <tr class="bg-card/20"><td class="px-4 py-3.5">Veterinary & Vaccines <span class="text-muted">(PPR, ET, dewormers, minerals)</span></td><td class="tnum px-4 py-3.5 text-right font-semibold">₹32,000</td></tr>
+                <tr class="bg-card/40"><td class="px-4 py-3.5">Farm Labor <span class="text-muted">(caretaker, 3.5 months)</span></td><td class="tnum px-4 py-3.5 text-right font-semibold">₹63,000</td></tr>
+                <tr class="bg-card/20"><td class="px-4 py-3.5">Staff Support + Power + Biosecurity</td><td class="tnum px-4 py-3.5 text-right font-semibold">₹26,000</td></tr>
+                <tr class="bg-card/40"><td class="px-4 py-3.5">Contingency Buffer <span class="text-muted">(emergencies, price variance)</span></td><td class="tnum px-4 py-3.5 text-right font-semibold">₹35,000</td></tr>
+              </tbody>
+              <tfoot>
+                <tr class="border-t border-gold/40 bg-gold/10"><td class="px-4 py-4 font-semibold uppercase tracking-wide text-gold">Total Batch OpEx</td><td class="tnum px-4 py-4 text-right text-lg font-extrabold text-gold">₹11,87,000</td></tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+        <!-- Scenarios -->
+        <div class="reveal mb-14">
+          <h3 class="text-lg font-semibold sm:text-xl">Three Honest Scenarios — Not One Optimistic Number</h3>
+          <p class="mb-6 mt-2 max-w-3xl text-sm leading-relaxed text-muted">
+            Most farm business plans show one revenue figure under ideal conditions. This plan models three. The difference
+            between them is only the selling price per kg achieved in the January festival market — everything else is fixed.
+          </p>
+
+          <div class="grid gap-4 lg:grid-cols-3">
+            <!-- A -->
+            <article class="rounded-2xl border border-pos/40 bg-pos/[0.07] p-6">
+              <div class="flex items-center justify-between">
+                <span class="rounded-full bg-pos/15 px-2.5 py-1 text-xs font-semibold text-pos">Scenario A · Good Festival Year</span>
+              </div>
+              <dl class="mt-4 space-y-1.5 text-sm">
+                <div class="flex justify-between"><dt class="text-muted">Selling price</dt><dd class="tnum font-medium">₹480/kg</dd></div>
+                <div class="flex justify-between"><dt class="text-muted">Revenue</dt><dd class="tnum font-medium">₹14,32,600</dd></div>
+                <div class="flex justify-between"><dt class="text-muted">Per surviving lamb</dt><dd class="tnum font-medium">₹2,558</dd></div>
+              </dl>
+              <div class="mt-5 border-t border-pos/20 pt-4">
+                <div class="text-xs uppercase tracking-wide text-muted">Net Profit</div>
+                <div class="tnum text-3xl font-extrabold text-pos">+₹2,45,600</div>
+              </div>
+              <p class="mt-4 text-xs leading-relaxed text-muted">Strong Sankranti demand, direct buyer relationships, well-finished animals.</p>
+            </article>
+            <!-- B -->
+            <article class="rounded-2xl border border-gold/40 bg-gold/[0.06] p-6">
+              <div class="flex items-center justify-between">
+                <span class="rounded-full bg-gold/15 px-2.5 py-1 text-xs font-semibold text-gold">Scenario B · Average Year</span>
+              </div>
+              <dl class="mt-4 space-y-1.5 text-sm">
+                <div class="flex justify-between"><dt class="text-muted">Selling price</dt><dd class="tnum font-medium">₹430/kg</dd></div>
+                <div class="flex justify-between"><dt class="text-muted">Revenue</dt><dd class="tnum font-medium">₹12,82,050</dd></div>
+                <div class="flex justify-between"><dt class="text-muted">Per surviving lamb</dt><dd class="tnum font-medium">₹990</dd></div>
+              </dl>
+              <div class="mt-5 border-t border-gold/20 pt-4">
+                <div class="text-xs uppercase tracking-wide text-muted">Net Profit</div>
+                <div class="tnum text-3xl font-extrabold text-gold">+₹95,050</div>
+              </div>
+              <p class="mt-4 text-xs leading-relaxed text-muted">Moderate demand, partial trader dependence, some market crowding.</p>
+            </article>
+            <!-- C -->
+            <article class="rounded-2xl border border-neg/40 bg-neg/[0.07] p-6">
+              <div class="flex items-center justify-between">
+                <span class="rounded-full bg-neg/15 px-2.5 py-1 text-xs font-semibold text-neg">Scenario C · Stress Test</span>
+              </div>
+              <dl class="mt-4 space-y-1.5 text-sm">
+                <div class="flex justify-between"><dt class="text-muted">Selling price</dt><dd class="tnum font-medium">₹390/kg</dd></div>
+                <div class="flex justify-between"><dt class="text-muted">Exit weight</dt><dd class="tnum font-medium">29 kg</dd></div>
+                <div class="flex justify-between"><dt class="text-muted">Revenue</dt><dd class="tnum font-medium">₹10,91,420</dd></div>
+              </dl>
+              <div class="mt-5 border-t border-neg/20 pt-4">
+                <div class="text-xs uppercase tracking-wide text-muted">Net Loss</div>
+                <div class="tnum text-3xl font-extrabold text-neg">−₹95,580</div>
+              </div>
+              <p class="mt-4 text-xs leading-relaxed text-muted">Oversupply, forced trader sale, below-target ADG.</p>
+            </article>
+          </div>
+
+          <!-- callout -->
+          <div class="mt-5 flex gap-4 rounded-2xl border border-pos/30 bg-pos/[0.06] p-6">
+            <span class="feat-icon hidden h-10 w-10 shrink-0 place-items-center rounded-lg bg-pos/15 text-pos ring-1 ring-pos/25 sm:grid"><svg><use href="#i-shield"/></svg></span>
+            <p class="text-sm leading-relaxed text-ink/90">
+              Even in the worst modelled scenario, the loss is <strong class="text-ink">under ₹1 Lakh</strong> — fully covered by the owner's personal
+              capital reserve of ₹5–10 Lakhs held outside this project. This is a manageable downside on a business with strong
+              upside from Batch 2 onwards.
+            </p>
+          </div>
+        </div>
+
+        <!-- Break-even -->
+        <div class="reveal">
+          <h3 class="mb-1 text-lg font-semibold sm:text-xl">Infrastructure Pays for Itself by Batch 3</h3>
+          <p class="mb-6 text-sm text-muted">CapEx break-even timeline</p>
+
+          <div class="grid gap-4 sm:grid-cols-3">
+            <div class="rounded-2xl border border-line bg-card/60 p-5">
+              <div class="text-xs font-semibold text-gold">Batch 1 · Oct 2027</div>
+              <div class="tnum mt-1 text-sm text-muted">100 lambs</div>
+              <div class="tnum mt-3 text-xl font-bold text-pos">+₹2,45,600</div>
+              <div class="mt-3 border-t border-line pt-3 text-xs text-muted">Cumulative recovery</div>
+              <div class="tnum text-sm font-semibold">₹2,45,600</div>
+            </div>
+            <div class="rounded-2xl border border-line bg-card/60 p-5">
+              <div class="text-xs font-semibold text-gold">Batch 2 · 2028</div>
+              <div class="tnum mt-1 text-sm text-muted">150 lambs</div>
+              <div class="tnum mt-3 text-xl font-bold text-pos">+₹3,80,000<span class="text-xs font-normal text-muted"> est</span></div>
+              <div class="mt-3 border-t border-line pt-3 text-xs text-muted">Cumulative recovery</div>
+              <div class="tnum text-sm font-semibold">₹6,25,600</div>
+            </div>
+            <div class="rounded-2xl border border-gold/40 bg-gold/[0.08] p-5">
+              <div class="text-xs font-semibold text-gold">Batch 3 · 2028–29</div>
+              <div class="tnum mt-1 text-sm text-muted">250 lambs</div>
+              <div class="tnum mt-3 text-xl font-bold text-pos">+₹7,50,000<span class="text-xs font-normal text-muted"> est</span></div>
+              <div class="mt-3 border-t border-gold/20 pt-3 text-xs text-muted">Cumulative recovery</div>
+              <div class="tnum text-sm font-bold text-gold">₹13,75,600 ✓</div>
+            </div>
+          </div>
+          <p class="mt-4 rounded-xl border border-line bg-card/40 p-4 text-sm text-ink/85">
+            At full 250-lamb capacity running 3 batches per year, estimated annual net profit (Scenario A conditions):
+            <strong class="text-gold">₹20–25 Lakhs</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 4 — RISK ===================== -->
+    <section id="risk" class="bg-bg2/60 py-16 sm:py-20">
+      <div class="mx-auto max-w-6xl px-5">
+        <header class="reveal mb-4 max-w-3xl">
+          <span class="text-xs font-semibold uppercase tracking-widest text-gold">Risk & Mitigation</span>
+          <h2 class="mt-2 text-2xl font-bold sm:text-4xl">The Risks — And Why They Are Manageable</h2>
+        </header>
+        <p class="reveal mb-10 max-w-3xl text-sm text-muted">Investors trust plans that acknowledge risk more than plans that pretend there is none. Each risk below is paired with its likelihood, impact, and the specific mitigation in place.</p>
+
+        <div class="reveal space-y-3">
+          <!-- legend -->
+          <div class="mb-2 flex flex-wrap items-center gap-4 text-xs text-muted">
+            <span class="inline-flex items-center gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-pos"></span>Low</span>
+            <span class="inline-flex items-center gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-warn"></span>Medium</span>
+            <span class="inline-flex items-center gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-neg"></span>High</span>
+          </div>
+
+          <!-- risk row component (card on mobile, table-like on desktop) -->
+          <article class="rounded-2xl border border-line bg-card/50 p-5 md:grid md:grid-cols-12 md:items-start md:gap-4">
+            <div class="md:col-span-4">
+              <h4 class="font-semibold leading-snug">Lamb procurement price higher than ₹520/kg</h4>
+              <div class="mt-2 flex gap-2 text-xs">
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-warn/15 px-2 py-0.5 text-warn"><span class="h-2 w-2 rounded-full bg-warn"></span>Likelihood: Medium</span>
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-neg/15 px-2 py-0.5 text-neg"><span class="h-2 w-2 rounded-full bg-neg"></span>Impact: High</span>
+              </div>
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-muted md:col-span-8 md:mt-0">Field price verification at Rajampet / Proddatur shandy before finalising. Buy price and sell price move together — margin compresses but doesn't collapse.</p>
+          </article>
+
+          <article class="rounded-2xl border border-line bg-card/50 p-5 md:grid md:grid-cols-12 md:items-start md:gap-4">
+            <div class="md:col-span-4">
+              <h4 class="font-semibold leading-snug">Festival sell price disappoints (Scenario C)</h4>
+              <div class="mt-2 flex gap-2 text-xs">
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-warn/15 px-2 py-0.5 text-warn"><span class="h-2 w-2 rounded-full bg-warn"></span>Likelihood: Low–Medium</span>
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-warn/15 px-2 py-0.5 text-warn"><span class="h-2 w-2 rounded-full bg-warn"></span>Impact: Medium</span>
+              </div>
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-muted md:col-span-8 md:mt-0">₹95,580 maximum modelled loss. Covered by owner's personal reserve. Does not threaten infrastructure or Batch 2.</p>
+          </article>
+
+          <article class="rounded-2xl border border-line bg-card/50 p-5 md:grid md:grid-cols-12 md:items-start md:gap-4">
+            <div class="md:col-span-4">
+              <h4 class="font-semibold leading-snug">Feed price spike (maize / cottonseed)</h4>
+              <div class="mt-2 flex gap-2 text-xs">
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-warn/15 px-2 py-0.5 text-warn"><span class="h-2 w-2 rounded-full bg-warn"></span>Likelihood: Medium</span>
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-warn/15 px-2 py-0.5 text-warn"><span class="h-2 w-2 rounded-full bg-warn"></span>Impact: Medium</span>
+              </div>
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-muted md:col-span-8 md:mt-0">₹35,000 contingency buffer in OpEx. At 250-lamb scale, bulk wholesale rate drops from ₹24 to ₹20/kg, building in structural protection.</p>
+          </article>
+
+          <article class="rounded-2xl border border-line bg-card/50 p-5 md:grid md:grid-cols-12 md:items-start md:gap-4">
+            <div class="md:col-span-4">
+              <h4 class="font-semibold leading-snug">Animal health outbreak</h4>
+              <div class="mt-2 flex gap-2 text-xs">
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-pos/15 px-2 py-0.5 text-pos"><span class="h-2 w-2 rounded-full bg-pos"></span>Likelihood: Low</span>
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-neg/15 px-2 py-0.5 text-neg"><span class="h-2 w-2 rounded-full bg-neg"></span>Impact: High</span>
+              </div>
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-muted md:col-span-8 md:mt-0">All-In-All-Out system, full vaccination protocol (PPR, ET + booster, dual deworming), live-in caretaker, 10-day biosecurity reset between batches.</p>
+          </article>
+
+          <article class="rounded-2xl border border-line bg-card/50 p-5 md:grid md:grid-cols-12 md:items-start md:gap-4">
+            <div class="md:col-span-4">
+              <h4 class="font-semibold leading-snug">Borewell failure</h4>
+              <div class="mt-2 flex gap-2 text-xs">
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-pos/15 px-2 py-0.5 text-pos"><span class="h-2 w-2 rounded-full bg-pos"></span>Likelihood: Very Low</span>
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-warn/15 px-2 py-0.5 text-warn"><span class="h-2 w-2 rounded-full bg-warn"></span>Impact: Medium</span>
+              </div>
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-muted md:col-span-8 md:mt-0">Strong local water table confirmed. Hill catchment surroundings. Neighbour bore data validates depth and yield.</p>
+          </article>
+
+          <article class="rounded-2xl border border-line bg-card/50 p-5 md:grid md:grid-cols-12 md:items-start md:gap-4">
+            <div class="md:col-span-4">
+              <h4 class="font-semibold leading-snug">No direct buyers — forced trader sale</h4>
+              <div class="mt-2 flex gap-2 text-xs">
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-warn/15 px-2 py-0.5 text-warn"><span class="h-2 w-2 rounded-full bg-warn"></span>Likelihood: Medium (Batch 1)</span>
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-warn/15 px-2 py-0.5 text-warn"><span class="h-2 w-2 rounded-full bg-warn"></span>Impact: Medium</span>
+              </div>
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-muted md:col-span-8 md:mt-0">Trader sale still generates revenue — just at lower margin. Direct buyer outreach begins 3 months before Batch 1 exit. Tirupati shops are the primary target.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 5 — GROWTH ===================== -->
+    <section id="growth" class="py-16 sm:py-20">
+      <div class="mx-auto max-w-6xl px-5">
+        <header class="reveal mb-4 max-w-3xl">
+          <span class="text-xs font-semibold uppercase tracking-widest text-gold">Growth Plan</span>
+          <h2 class="mt-2 text-2xl font-bold sm:text-4xl">Built for 250 From Day One — Scaling Is Structural, Not Speculative</h2>
+        </header>
+        <p class="reveal mb-12 max-w-3xl text-sm leading-relaxed text-muted">
+          The infrastructure is designed and priced for 250 lambs. There is no rebuild required to scale. The shed, slats,
+          water system, and warehouse all support full capacity from Day 1 — only the batch size grows.
+        </p>
+
+        <!-- 100 vs 250 comparison -->
+        <div class="reveal mb-14">
+          <h3 class="mb-6 text-lg font-semibold sm:text-xl">Why the Economics Improve Dramatically at Scale</h3>
+          <div class="overflow-hidden rounded-2xl border border-line">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-card/60 text-left">
+                  <th class="px-4 py-3 font-medium text-muted">Metric</th>
+                  <th class="px-4 py-3 text-right font-medium">100 Lambs <span class="text-muted">(Batch 1)</span></th>
+                  <th class="px-4 py-3 text-right font-medium text-gold">250 Lambs <span class="text-muted">(Full)</span></th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-line">
+                <tr><td class="px-4 py-3.5">Labor cost per animal</td><td class="tnum px-4 py-3.5 text-right">₹630</td><td class="tnum px-4 py-3.5 text-right font-semibold text-pos">₹252</td></tr>
+                <tr class="bg-card/20"><td class="px-4 py-3.5">CapEx per animal / year</td><td class="tnum px-4 py-3.5 text-right">₹444</td><td class="tnum px-4 py-3.5 text-right font-semibold text-pos">₹178</td></tr>
+                <tr><td class="px-4 py-3.5">TMR feed rate</td><td class="tnum px-4 py-3.5 text-right">₹24/kg</td><td class="tnum px-4 py-3.5 text-right font-semibold text-pos">₹20–21/kg</td></tr>
+                <tr class="bg-card/20"><td class="px-4 py-3.5">Feed cost saving / batch</td><td class="px-4 py-3.5 text-right text-muted">—</td><td class="tnum px-4 py-3.5 text-right font-semibold text-pos">~₹1,10,000</td></tr>
+                <tr><td class="px-4 py-3.5">Est. net profit (Scenario A)</td><td class="tnum px-4 py-3.5 text-right">₹2,45,600</td><td class="tnum px-4 py-3.5 text-right font-semibold text-pos">₹7.5–8.5L</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Phase roadmap -->
+        <div class="reveal mb-14">
+          <h3 class="mb-8 text-lg font-semibold sm:text-xl">Phase Roadmap</h3>
+          <ol class="relative space-y-6 border-l border-line pl-6 sm:pl-8">
+            <li class="relative">
+              <span class="absolute -left-[31px] top-1 grid h-5 w-5 place-items-center rounded-full bg-gold text-bg sm:-left-[39px]"><span class="h-2 w-2 rounded-full bg-bg"></span></span>
+              <div class="rounded-2xl border border-line bg-card/60 p-5">
+                <div class="text-xs font-semibold uppercase tracking-wide text-gold">Phase 1 · Oct 2027 – Jan 2028</div>
+                <p class="mt-2 text-sm leading-relaxed text-ink/85">Batch 1: 100 lambs. Prove the system. Build first direct buyer relationships in Tirupati. Document everything. Exit into Sankranti 2028.</p>
+              </div>
+            </li>
+            <li class="relative">
+              <span class="absolute -left-[31px] top-1 grid h-5 w-5 place-items-center rounded-full bg-gold text-bg sm:-left-[39px]"><span class="h-2 w-2 rounded-full bg-bg"></span></span>
+              <div class="rounded-2xl border border-line bg-card/60 p-5">
+                <div class="text-xs font-semibold uppercase tracking-wide text-gold">Phase 2 · 2028 (Batches 2 & 3)</div>
+                <p class="mt-2 text-sm leading-relaxed text-ink/85">Scale to 150 then 250 lambs. Activate Bangalore meat trader channel. Launch farm WhatsApp updates for direct consumer buyers. Achieve bulk TMR pricing. Target: ₹3.8L–₹7.5L net per batch.</p>
+              </div>
+            </li>
+            <li class="relative">
+              <span class="absolute -left-[31px] top-1 grid h-5 w-5 place-items-center rounded-full bg-gold text-bg sm:-left-[39px]"><span class="h-2 w-2 rounded-full bg-bg"></span></span>
+              <div class="rounded-2xl border border-line bg-card/60 p-5">
+                <div class="text-xs font-semibold uppercase tracking-wide text-gold">Phase 3 · 2029</div>
+                <p class="mt-2 text-sm leading-relaxed text-ink/85">Full 250-lamb capacity, 3 batches per year. Direct hotel and restaurant supply contracts in Tirupati. Estimated annual net: ₹20–25 Lakhs.</p>
+              </div>
+            </li>
+            <li class="relative">
+              <span class="absolute -left-[31px] top-1 grid h-5 w-5 place-items-center rounded-full bg-gold text-bg sm:-left-[39px]"><span class="h-2 w-2 rounded-full bg-bg"></span></span>
+              <div class="rounded-2xl border border-line bg-card/60 p-5">
+                <div class="text-xs font-semibold uppercase tracking-wide text-gold">Phase 4 · 2030 and Beyond</div>
+                <p class="mt-2 text-sm leading-relaxed text-ink/85">Evaluate second unit or breeding component. Potential to supply Nellore ram lambs to other commercial feedlots — selling what is currently a procurement cost as a revenue stream.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Buyer channels -->
+        <div class="reveal">
+          <h3 class="mb-2 text-lg font-semibold sm:text-xl">The Buyer Channel Strategy</h3>
+          <p class="mb-6 text-sm text-muted">Four channels being built in parallel — each de-risks dependence on traders.</p>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <article class="rounded-2xl border border-line bg-card/60 p-5">
+              <div class="flex items-center gap-2"><span class="rounded-full bg-gold/15 px-2 py-0.5 text-xs font-semibold text-gold">Primary · Batch 1</span></div>
+              <h4 class="mt-2 font-semibold">Tirupati Mutton Shops</h4>
+              <p class="mt-1.5 text-sm leading-relaxed text-muted">5–8 established shops on Leela Mahal Road and Gandhi Road. Advance price agreements before exit. Nellore-certified animals are specifically what their festival customers ask for.</p>
+            </article>
+            <article class="rounded-2xl border border-line bg-card/60 p-5">
+              <div class="flex items-center gap-2"><span class="rounded-full bg-gold/15 px-2 py-0.5 text-xs font-semibold text-gold">Batch 2</span></div>
+              <h4 class="mt-2 font-semibold">Bangalore Telugu Meat Traders</h4>
+              <p class="mt-1.5 text-sm leading-relaxed text-muted">KR Market. AP migrant population specifically seeks genuine Nellore genetics unavailable locally in Karnataka. Premium of ₹20–40/kg above AP rates. Transport ~₹10,000 for 50 animals — math works comfortably.</p>
+            </article>
+            <article class="rounded-2xl border border-line bg-card/60 p-5">
+              <div class="flex items-center gap-2"><span class="rounded-full bg-gold/15 px-2 py-0.5 text-xs font-semibold text-gold">Batch 3</span></div>
+              <h4 class="mt-2 font-semibold">Hotel & Restaurant Supply</h4>
+              <p class="mt-1.5 text-sm leading-relaxed text-muted">Mid-range hotels near the Tirupati temple precinct. TMR-fed animals have more consistent fat cover and conformation — better portioning for kitchens. A trial of 10–15 animals opens the relationship.</p>
+            </article>
+            <article class="rounded-2xl border border-line bg-card/60 p-5">
+              <div class="flex items-center gap-2"><span class="rounded-full bg-gold/15 px-2 py-0.5 text-xs font-semibold text-gold">All Batches</span></div>
+              <h4 class="mt-2 font-semibold">Direct Festival Consumer</h4>
+              <p class="mt-1.5 text-sm leading-relaxed text-muted">WhatsApp Business + Facebook farm updates from October. AP / Telangana consumers increasingly prefer buying direct from visible farms for Sankranti. Farm pickup or Tirupati delivery. No middleman margin.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 6 — THE ASK ===================== -->
+    <section id="ask" class="bg-bg2/60 py-16 sm:py-20">
+      <div class="mx-auto max-w-3xl px-5">
+        <header class="reveal mb-8 text-center">
+          <span class="text-xs font-semibold uppercase tracking-widest text-gold">The Ask</span>
+          <h2 class="mt-2 text-2xl font-bold sm:text-4xl">What I'm Looking For</h2>
+        </header>
+
+        <div class="reveal rounded-3xl border border-gold/30 bg-gradient-to-b from-card/80 to-card/40 p-7 sm:p-10">
+          <div class="space-y-4 text-[15px] leading-relaxed text-ink/90 sm:text-base">
+            <p>
+              I am funding the infrastructure <span class="tnum font-semibold text-gold">(₹13.35 Lakhs)</span> myself. The land is mine.
+              The plan is built. What I'm exploring is whether a trusted partner wants to co-invest in working capital for
+              <strong class="text-ink">Batch 2 and beyond</strong>, once Batch 1 has validated the system.
+            </p>
+            <p>
+              That means you would <strong class="text-ink">not be taking on infrastructure risk</strong>. By the time any co-investment is
+              deployed, the shed is built, the first batch has run, and the numbers are real — not projected.
+            </p>
+            <p>
+              I am not looking for a silent creditor. I want someone who believes in the business and is comfortable with the
+              risk profile outlined in this plan. Returns would be structured based on what works for both of us — equity
+              stake, profit share, or loan with return — open to discussion.
+            </p>
+            <p class="text-gold">If you have questions about anything in this plan, call me.</p>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-8 flex flex-col items-center gap-3">
+            <!-- PLACEHOLDER: replace 91XXXXXXXXXX with country code + 10-digit number, e.g. 919876543210 [WHATSAPP_NUMBER] -->
+            <a href="https://wa.me/91XXXXXXXXXX"
+               class="inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-gold px-6 py-4 text-base font-semibold text-bg shadow-lg shadow-gold/20 transition-transform hover:scale-[1.02] active:scale-100 sm:w-auto">
+              <svg class="h-5 w-5"><use href="#i-whatsapp"/></svg>
+              <!-- PLACEHOLDER: [OWNER_NAME] -->
+              Call / WhatsApp [OWNER_NAME]
+            </a>
+            <!-- PLACEHOLDER: [PHONE_DISPLAY] -->
+            <p class="tnum text-sm text-muted">or call directly: <span class="font-medium text-ink">[PHONE_DISPLAY]</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 7 — FOOTER / CONTACT ===================== -->
+    <footer id="contact" class="border-t border-line bg-bg2 py-12">
+      <div class="mx-auto max-w-3xl px-5 text-center">
+        <div class="mb-4 flex flex-wrap items-center justify-center gap-2 text-gold">
+          <svg class="feat-icon h-5 w-5 shrink-0"><use href="#i-pin"/></svg>
+          <span class="text-center font-semibold">KR Kandriga Sheep Farm — Annamayya District, AP</span>
+        </div>
+        <p class="mx-auto max-w-md text-sm leading-relaxed text-muted">
+          <!-- PLACEHOLDER: [FRIEND_NAME] -->
+          Built October 2027. This is a private document shared with <span class="text-ink/80">[FRIEND_NAME]</span> — not for public distribution.
+        </p>
+        <div class="mx-auto mt-6 flex max-w-xs flex-col items-center gap-1 border-t border-line pt-6 text-sm">
+          <!-- PLACEHOLDER: [OWNER_NAME] -->
+          <span class="font-semibold text-ink">[OWNER_NAME]</span>
+          <!-- PLACEHOLDER: [PHONE_DISPLAY] -->
+          <a href="tel:[PHONE_DISPLAY]" class="tnum inline-flex items-center gap-1.5 text-muted transition-colors hover:text-gold">
+            <svg class="feat-icon h-4 w-4"><use href="#i-phone"/></svg> [PHONE_DISPLAY]
+          </a>
+        </div>
+        <!-- PLACEHOLDER: [SITE_URL] — add the final GitHub Pages URL here after deployment if needed -->
+        <p class="mt-8 text-xs text-muted/60">Confidential · Analyst-reviewed revised figures · Prepared June 2026</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script>
+    // Scroll-reveal: fade sections in as they enter the viewport.
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+
+    // Active nav link highlighting based on the section in view.
+    (function () {
+      var sections = document.querySelectorAll('main section, footer[id]');
+      var links = {};
+      document.querySelectorAll('.navlink').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+      });
+      if (!('IntersectionObserver' in window)) return;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            Object.values(links).forEach(function (l) { l.classList.remove('active'); });
+            var id = e.target.getAttribute('id');
+            if (links[id]) links[id].classList.add('active');
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      sections.forEach(function (s) { io.observe(s); });
+    })();
+  </script>
+</body>
+</html>
