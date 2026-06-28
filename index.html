@@ -239,7 +239,7 @@
               <!-- LAYER 3 CHICKENS -->
               <g>
                 <rect x="90" y="372" width="640" height="56" rx="6" fill="#1B4332" opacity="0.4" stroke="#2A3D22"/>
-                <!-- wire mesh strip -->
+                <!-- chicken slat strip -->
                 <rect x="98" y="416" width="624" height="12" rx="2" fill="#0D1F0F" stroke="#A0A0A0" stroke-opacity="0.5"/>
                 <g stroke="#A0A0A0" stroke-opacity="0.45" stroke-width="1.4"><path d="M110 416v12M125 416v12M140 416v12M155 416v12M170 416v12M185 416v12M200 416v12M215 416v12M230 416v12M245 416v12M260 416v12M275 416v12M290 416v12M305 416v12M320 416v12M335 416v12M350 416v12M365 416v12M380 416v12M395 416v12M410 416v12M425 416v12M440 416v12M455 416v12M470 416v12M485 416v12M500 416v12M515 416v12M530 416v12M545 416v12M560 416v12M575 416v12M590 416v12M605 416v12M620 416v12M635 416v12M650 416v12M665 416v12M680 416v12M695 416v12M710 416v12"/></g>
                 <use href="#i-chicken" x="170" y="382" width="28" height="28" style="color:#F5F5F0"/>
@@ -247,7 +247,7 @@
                 <use href="#i-chicken" x="490" y="382" width="28" height="28" style="color:#F5F5F0"/>
                 <use href="#i-chicken" x="620" y="382" width="28" height="28" style="color:#F5F5F0"/>
                 <text x="100" y="364" fill="#D4A017" font-size="15" font-weight="700" font-family="Inter">LAYER 3 · CHICKENS</text>
-                <text x="722" y="364" text-anchor="end" fill="#A0A0A0" font-size="13" font-family="Inter">3,000 broilers on GI wire mesh · 20 in above floor</text>
+                <text x="722" y="364" text-anchor="end" fill="#A0A0A0" font-size="13" font-family="Inter">3,000 broilers on plastic slats · 20 in above the sloped floor</text>
               </g>
 
               <!-- LAYER 0 PCC floor -->
@@ -267,12 +267,15 @@
           <div class="mt-4 flex gap-4 rounded-xl border border-line bg-card/40 p-5">
             <span class="feat-icon hidden h-10 w-10 shrink-0 place-items-center rounded-lg bg-gold/15 text-gold ring-1 ring-gold/25 sm:grid"><svg><use href="#i-drop"/></svg></span>
             <p class="text-sm leading-relaxed text-ink/85">
-              <strong class="text-ink">Why a raised wire floor instead of deep litter:</strong> 318 sheep produce <strong class="text-ink">382 litres of urine per day</strong>.
+              <strong class="text-ink">Why a raised slat floor instead of deep litter:</strong> 318 sheep produce <strong class="text-ink">382 litres of urine per day</strong>.
               Rice-husk litter would be fully saturated by Day 27 of the 100-day sheep batch, creating anaerobic conditions fatal to
-              chickens. The raised wire floor lets urine pass straight through to the PCC drainage system — the same system already
+              chickens. The raised floor lets urine and droppings pass straight through to the PCC drainage system — the same system already
               designed for the sheep.
             </p>
           </div>
+          <p class="mt-3 text-xs leading-relaxed text-muted">
+            <strong class="not-italic text-ink/80">Chicken flooring:</strong> poultry-grade plastic slats (~22 mm gap, anti-slip) — feet rest on the bars while droppings drop through; not bare wire, so no toe entrapment. A dry slat floor keeps feet cleaner than wet litter (the main cause of footpad lesions); the trade-off is reduced litter-foraging behaviour. Feed is served from feeders, not the floor. Costed at the existing ~₹91/sqft all-in, which already covers plastic-slat-grade flooring — no CapEx change.
+          </p>
         </div>
 
         <!-- 2.2 Plus layout -->
@@ -349,7 +352,7 @@
         <div class="reveal mb-12 grid gap-4 md:grid-cols-2">
           <article class="rounded-2xl border border-line bg-card/60 p-6">
             <div class="mb-3 flex items-center gap-3"><span class="feat-icon grid h-10 w-10 place-items-center rounded-lg bg-gold/15 text-gold ring-1 ring-gold/25"><svg><use href="#i-chicken"/></svg></span><h3 class="font-semibold">2.3 · Brooding Bay — Chick Start Zone</h3></div>
-            <p class="text-sm leading-relaxed text-muted">A dedicated 1,500 sq ft insulated brick room in the NW corner. Day-old chicks need 32–35 °C — provided by 6 infrared brooding lamps for 14 days. After Day 14, chicks transfer to the raised wire floor for the remaining 28 days. One brooding bay serves all four sheds sequentially — built at Batch 8 when the first chickens arrive.</p>
+            <p class="text-sm leading-relaxed text-muted">A dedicated 1,500 sq ft insulated brick room in the NW corner. Day-old chicks need 32–35 °C — provided by 6 infrared brooding lamps for 14 days. After Day 14, chicks transfer to the raised slat floor for the remaining 28 days. One brooding bay serves all four sheds sequentially — built at Batch 8 when the first chickens arrive.</p>
           </article>
           <article class="rounded-2xl border border-line bg-card/60 p-6">
             <div class="mb-3 flex items-center gap-3"><span class="feat-icon grid h-10 w-10 place-items-center rounded-lg bg-gold/15 text-gold ring-1 ring-gold/25"><svg><use href="#i-sheep"/></svg></span><h3 class="font-semibold">The Breed — Nellore Ram Lambs</h3></div>
@@ -582,10 +585,10 @@
                 <tr class="bg-card/30"><td class="tnum px-4 py-2.5 font-semibold">2</td><td class="px-4 py-2.5">Shed 2 + HF trial + ingredient store</td><td class="tnum px-4 py-2.5 text-right">₹12,86,005</td><td class="px-4 py-2.5 text-muted">Reserve + profit</td></tr>
                 <tr><td class="tnum px-4 py-2.5 font-semibold">3</td><td class="px-4 py-2.5">Shed 3 + full HF complex + feed mixer</td><td class="tnum px-4 py-2.5 text-right">₹17,17,005</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
                 <tr class="bg-card/30"><td class="tnum px-4 py-2.5 font-semibold">4</td><td class="px-4 py-2.5">Shed 4 + HF Room 2 + vermicompost</td><td class="tnum px-4 py-2.5 text-right">₹15,21,005</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
-                <tr><td class="tnum px-4 py-2.5 font-semibold">5</td><td class="px-4 py-2.5">Brooding bay + Shed 1 raised wire floor</td><td class="tnum px-4 py-2.5 text-right">₹5,22,410</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
-                <tr class="bg-card/30"><td class="tnum px-4 py-2.5 font-semibold">6</td><td class="px-4 py-2.5">Shed 2 raised wire floor</td><td class="tnum px-4 py-2.5 text-right">₹2,73,910</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
-                <tr><td class="tnum px-4 py-2.5 font-semibold">7</td><td class="px-4 py-2.5">Shed 3 raised wire floor</td><td class="tnum px-4 py-2.5 text-right">₹2,73,910</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
-                <tr class="bg-card/30"><td class="tnum px-4 py-2.5 font-semibold">8</td><td class="px-4 py-2.5">Shed 4 raised wire floor — Acre 1 complete</td><td class="tnum px-4 py-2.5 text-right">₹2,73,910</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
+                <tr><td class="tnum px-4 py-2.5 font-semibold">5</td><td class="px-4 py-2.5">Brooding bay + Shed 1 raised plastic-slat floor</td><td class="tnum px-4 py-2.5 text-right">₹5,22,410</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
+                <tr class="bg-card/30"><td class="tnum px-4 py-2.5 font-semibold">6</td><td class="px-4 py-2.5">Shed 2 raised plastic-slat floor</td><td class="tnum px-4 py-2.5 text-right">₹2,73,910</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
+                <tr><td class="tnum px-4 py-2.5 font-semibold">7</td><td class="px-4 py-2.5">Shed 3 raised plastic-slat floor</td><td class="tnum px-4 py-2.5 text-right">₹2,73,910</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
+                <tr class="bg-card/30"><td class="tnum px-4 py-2.5 font-semibold">8</td><td class="px-4 py-2.5">Shed 4 raised plastic-slat floor — Acre 1 complete</td><td class="tnum px-4 py-2.5 text-right">₹2,73,910</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
               </tbody>
               <tfoot><tr class="border-t border-gold/40 bg-gold/10"><td class="px-4 py-3 font-semibold text-gold" colspan="2">Total Acre 1</td><td class="tnum px-4 py-3 text-right text-lg font-extrabold text-gold">₹79,44,160</td><td></td></tr></tfoot>
             </table>
@@ -723,9 +726,9 @@
                 <tr><td class="tnum px-4 py-2.5 font-semibold">5</td><td class="px-4 py-2.5">Feb 2029</td><td class="tnum px-4 py-2.5 text-right">900</td><td class="px-4 py-2.5 text-right text-muted">—</td><td class="px-4 py-2.5 text-muted">All 4 sheep sheds active</td></tr>
                 <tr class="bg-card/30"><td class="tnum px-4 py-2.5 font-semibold">6</td><td class="px-4 py-2.5">Jun 2029</td><td class="tnum px-4 py-2.5 text-right">1,272</td><td class="px-4 py-2.5 text-right text-muted">—</td><td class="px-4 py-2.5 text-muted">Full sheep rotation begins</td></tr>
                 <tr><td class="tnum px-4 py-2.5 font-semibold">7</td><td class="px-4 py-2.5">Oct 2029</td><td class="tnum px-4 py-2.5 text-right">1,272</td><td class="px-4 py-2.5 text-right text-muted">—</td><td class="px-4 py-2.5 text-muted">Full rotation running</td></tr>
-                <tr class="bg-card/30"><td class="tnum px-4 py-2.5 font-semibold">8</td><td class="px-4 py-2.5">Feb 2030</td><td class="tnum px-4 py-2.5 text-right">1,272</td><td class="tnum px-4 py-2.5 text-right">3,000</td><td class="px-4 py-2.5 text-muted">Brooding bay + Shed 1 wire floor</td></tr>
-                <tr><td class="tnum px-4 py-2.5 font-semibold">9</td><td class="px-4 py-2.5">Jun 2030</td><td class="tnum px-4 py-2.5 text-right">1,272</td><td class="tnum px-4 py-2.5 text-right">6,000</td><td class="px-4 py-2.5 text-muted">Shed 2 wire floor</td></tr>
-                <tr class="bg-gold/[0.08]"><td class="tnum px-4 py-2.5 font-semibold">10</td><td class="px-4 py-2.5">Oct 2030</td><td class="tnum px-4 py-2.5 text-right">1,272</td><td class="tnum px-4 py-2.5 text-right">9,000</td><td class="px-4 py-2.5 text-gold">Shed 3 wire floor + Acre 2 BUILD</td></tr>
+                <tr class="bg-card/30"><td class="tnum px-4 py-2.5 font-semibold">8</td><td class="px-4 py-2.5">Feb 2030</td><td class="tnum px-4 py-2.5 text-right">1,272</td><td class="tnum px-4 py-2.5 text-right">3,000</td><td class="px-4 py-2.5 text-muted">Brooding bay + Shed 1 slat floor</td></tr>
+                <tr><td class="tnum px-4 py-2.5 font-semibold">9</td><td class="px-4 py-2.5">Jun 2030</td><td class="tnum px-4 py-2.5 text-right">1,272</td><td class="tnum px-4 py-2.5 text-right">6,000</td><td class="px-4 py-2.5 text-muted">Shed 2 slat floor</td></tr>
+                <tr class="bg-gold/[0.08]"><td class="tnum px-4 py-2.5 font-semibold">10</td><td class="px-4 py-2.5">Oct 2030</td><td class="tnum px-4 py-2.5 text-right">1,272</td><td class="tnum px-4 py-2.5 text-right">9,000</td><td class="px-4 py-2.5 text-gold">Shed 3 slat floor + Acre 2 BUILD</td></tr>
                 <tr class="bg-gold/[0.05]"><td class="tnum px-4 py-2.5 font-semibold">11</td><td class="px-4 py-2.5">Feb 2031</td><td class="tnum px-4 py-2.5 text-right">2,544</td><td class="tnum px-4 py-2.5 text-right">12,000</td><td class="px-4 py-2.5 text-muted">Acre 1 complete · Acre 2 ramp-up</td></tr>
                 <tr class="bg-gold/[0.08]"><td class="tnum px-4 py-2.5 font-semibold">12</td><td class="px-4 py-2.5">Jun 2031</td><td class="tnum px-4 py-2.5 text-right">3,816</td><td class="tnum px-4 py-2.5 text-right">24,000</td><td class="px-4 py-2.5 text-gold">Acres 1+2 full + Acre 3 BUILD</td></tr>
                 <tr class="bg-gold/[0.08]"><td class="tnum px-4 py-2.5 font-semibold">14</td><td class="px-4 py-2.5">Feb 2032</td><td class="tnum px-4 py-2.5 text-right">5,088</td><td class="tnum px-4 py-2.5 text-right">36,000</td><td class="px-4 py-2.5 text-gold">3 full acres + Acre 4 BUILD</td></tr>
@@ -830,7 +833,7 @@
                   <tr class="bg-card/30"><td class="px-4 py-2">4 PCC floors + drainage</td><td class="tnum px-4 py-2 text-right">₹6,26,080</td></tr>
                   <tr><td class="px-4 py-2">Plastic slats (4 × 797 × ₹380)</td><td class="tnum px-4 py-2 text-right">₹12,11,440</td></tr>
                   <tr class="bg-card/30"><td class="px-4 py-2">Troughs + drinkers (4 sheds)</td><td class="tnum px-4 py-2 text-right">₹3,55,000</td></tr>
-                  <tr><td class="px-4 py-2">4 chicken raised wire floors</td><td class="tnum px-4 py-2 text-right">₹10,95,640</td></tr>
+                  <tr><td class="px-4 py-2">4 chicken raised plastic-slat floors</td><td class="tnum px-4 py-2 text-right">₹10,95,640</td></tr>
                   <tr class="bg-card/30"><td class="px-4 py-2">Brooding bay</td><td class="tnum px-4 py-2 text-right">₹2,48,500</td></tr>
                   <tr><td class="px-4 py-2">Borewell (300 ft + 2HP pump)</td><td class="tnum px-4 py-2 text-right">₹2,00,000</td></tr>
                   <tr class="bg-card/30"><td class="px-4 py-2">3 × 5,000 L tanks + tower</td><td class="tnum px-4 py-2 text-right">₹1,30,000</td></tr>
