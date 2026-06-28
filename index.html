@@ -161,8 +161,8 @@
         <!-- 8 stat pills -->
         <div class="reveal mt-9 grid grid-cols-2 gap-3 md:grid-cols-4">
           <div class="rounded-2xl border border-gold/25 bg-card/70 p-4"><div class="tnum text-xl font-extrabold text-gold sm:text-2xl">₹20.8L</div><div class="mt-1 text-xs text-muted">Batch 1 Total Investment</div></div>
-          <div class="rounded-2xl border border-gold/25 bg-card/70 p-4"><div class="tnum text-xl font-extrabold text-gold sm:text-2xl">₹79.4L</div><div class="mt-1 text-xs text-muted">Complete Acre 1 (All 8 Batches)</div></div>
-          <div class="rounded-2xl border border-gold/25 bg-card/70 p-4"><div class="tnum text-xl font-extrabold text-gold sm:text-2xl">₹88.8L</div><div class="mt-1 text-xs text-muted">Each New Acre 2–5 (Turnkey + Solar)</div></div>
+          <div class="rounded-2xl border border-gold/25 bg-card/70 p-4"><div class="tnum text-xl font-extrabold text-gold sm:text-2xl">₹99.4L</div><div class="mt-1 text-xs text-muted">Complete Acre 1 (All 8 Batches)</div></div>
+          <div class="rounded-2xl border border-gold/25 bg-card/70 p-4"><div class="tnum text-xl font-extrabold text-gold sm:text-2xl">₹1.09Cr</div><div class="mt-1 text-xs text-muted">Each New Acre 2–5 (Turnkey + Solar)</div></div>
           <div class="rounded-2xl border border-gold/25 bg-card/70 p-4"><div class="tnum text-xl font-extrabold text-gold sm:text-2xl">1,272</div><div class="mt-1 text-xs text-muted">Sheep Per Batch at Full Scale</div></div>
           <div class="rounded-2xl border border-gold/25 bg-card/70 p-4"><div class="tnum text-xl font-extrabold text-gold sm:text-2xl">12,000</div><div class="mt-1 text-xs text-muted">Chickens Simultaneously (Full Acre)</div></div>
           <div class="rounded-2xl border border-pos/30 bg-pos/[0.07] p-4"><div class="tnum text-xl font-extrabold text-pos sm:text-2xl">₹155–158L</div><div class="mt-1 text-xs text-muted">Annual Net Per Acre (Full Integration)</div></div>
@@ -201,78 +201,93 @@
           <p class="mb-5 text-sm text-muted">Cross-section — the most important diagram on this page.</p>
 
           <div class="overflow-hidden rounded-2xl border border-line bg-card/50 p-4 sm:p-6">
-            <svg viewBox="0 0 820 560" class="w-full" role="img" aria-label="Cross-section of the integrated shed showing sheep on top, open air, chickens below, and the PCC drainage floor">
+            <svg viewBox="0 0 820 620" class="w-full" role="img" aria-label="Cross-section of the integrated shed: sheep on slats up top; a perforated catchment deck that drains urine to a side gutter and is scraped of dry pellets daily; an open-air ventilation gap; chickens on plastic slats sealed clean below; and the PCC drainage floor for the chicken droppings.">
               <!-- roof -->
-              <path d="M70 96 L410 36 L750 96" fill="none" stroke="#D4A017" stroke-width="3" stroke-linejoin="round"/>
-              <path d="M70 96 L410 36 L750 96 L750 110 L410 52 L70 110 Z" fill="#D4A017" opacity="0.12"/>
-              <text x="410" y="78" text-anchor="middle" fill="#A0A0A0" font-size="14" font-family="Inter">GI frame + profile roof · 16 ft total height (chicken-ready from Day 1)</text>
+              <path d="M70 100 L410 40 L750 100" fill="none" stroke="#D4A017" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M70 100 L410 40 L750 100 L750 114 L410 56 L70 114 Z" fill="#D4A017" opacity="0.12"/>
+              <text x="410" y="82" text-anchor="middle" fill="#A0A0A0" font-size="14" font-family="Inter">GI frame + profile roof · 16 ft total height</text>
+
+              <!-- structural pillars (behind everything) -->
+              <g stroke="#A0A0A0" stroke-opacity="0.4" stroke-width="6"><path d="M120 198v360M410 198v360M700 198v360"/></g>
 
               <!-- LAYER 1 SHEEP -->
               <g>
-                <rect x="90" y="150" width="640" height="58" rx="6" fill="#1B4332" opacity="0.55" stroke="#2A3D22"/>
-                <!-- slat strip -->
-                <rect x="98" y="196" width="624" height="12" rx="2" fill="#0D1F0F" stroke="#D4A017" stroke-opacity="0.5"/>
-                <g stroke="#D4A017" stroke-opacity="0.5" stroke-width="2"><path d="M120 196v12M150 196v12M180 196v12M210 196v12M240 196v12M270 196v12M300 196v12M330 196v12M360 196v12M390 196v12M420 196v12M450 196v12M480 196v12M510 196v12M540 196v12M570 196v12M600 196v12M630 196v12M660 196v12M690 196v12"/></g>
-                <!-- sheep icons -->
-                <use href="#i-sheep" x="150" y="160" width="30" height="30" style="color:#F5F5F0"/>
-                <use href="#i-sheep" x="320" y="160" width="30" height="30" style="color:#F5F5F0"/>
-                <use href="#i-sheep" x="490" y="160" width="30" height="30" style="color:#F5F5F0"/>
-                <use href="#i-sheep" x="620" y="160" width="30" height="30" style="color:#F5F5F0"/>
-                <text x="100" y="142" fill="#D4A017" font-size="15" font-weight="700" font-family="Inter">LAYER 1 · SHEEP</text>
-                <text x="722" y="142" text-anchor="end" fill="#A0A0A0" font-size="13" font-family="Inter">318 Nellore lambs on PPCP slats · deck at 8 ft, ~8 ft headroom</text>
+                <text x="100" y="140" fill="#D4A017" font-size="15" font-weight="700" font-family="Inter">LAYER 1 · SHEEP</text>
+                <text x="724" y="140" text-anchor="end" fill="#A0A0A0" font-size="13" font-family="Inter">318 Nellore lambs on PPCP slats · deck at 8 ft</text>
+                <rect x="90" y="148" width="640" height="50" rx="6" fill="#1B4332" opacity="0.55" stroke="#2A3D22"/>
+                <rect x="98" y="186" width="624" height="12" rx="2" fill="#0D1F0F" stroke="#D4A017" stroke-opacity="0.5"/>
+                <g stroke="#D4A017" stroke-opacity="0.5" stroke-width="2"><path d="M120 186v12M150 186v12M180 186v12M210 186v12M240 186v12M270 186v12M300 186v12M330 186v12M360 186v12M390 186v12M420 186v12M450 186v12M480 186v12M510 186v12M540 186v12M570 186v12M600 186v12M630 186v12M660 186v12M690 186v12"/></g>
+                <use href="#i-sheep" x="160" y="152" width="28" height="28" style="color:#F5F5F0"/>
+                <use href="#i-sheep" x="330" y="152" width="28" height="28" style="color:#F5F5F0"/>
+                <use href="#i-sheep" x="500" y="152" width="28" height="28" style="color:#F5F5F0"/>
+                <use href="#i-sheep" x="620" y="152" width="28" height="28" style="color:#F5F5F0"/>
               </g>
 
-              <!-- pillars -->
-              <g stroke="#A0A0A0" stroke-opacity="0.5" stroke-width="6"><path d="M120 208v210M410 208v210M700 208v210"/></g>
+              <!-- urine + dry pellets fall through sheep slats onto the deck -->
+              <g stroke="#4CAF7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"><path d="M250 200v24M244 218l6 8 6-8M410 200v24M404 218l6 8 6-8M570 200v24M564 218l6 8 6-8"/></g>
+
+              <!-- CATCHMENT DECK (new layer) -->
+              <g>
+                <text x="100" y="246" fill="#D4A017" font-size="15" font-weight="700" font-family="Inter">CATCHMENT DECK</text>
+                <text x="724" y="246" text-anchor="end" fill="#E8B73A" font-size="12" font-family="Inter">perforated top · urine drops in → sump · pellets scraped daily → compost</text>
+                <!-- hollow box, sloped to the right gutter -->
+                <path d="M104 254 H716 V298 L104 288 Z" fill="#D4A017" opacity="0.10" stroke="#D4A017" stroke-opacity="0.55"/>
+                <!-- perforated top: holes urine drips through -->
+                <g stroke="#D4A017" stroke-opacity="0.75" stroke-width="3" stroke-linecap="round"><path d="M130 260h6M160 260h6M190 260h6M220 260h6M250 260h6M280 260h6M310 260h6M340 260h6M370 260h6M400 260h6M430 260h6M460 260h6M490 260h6M520 260h6M550 260h6M580 260h6M610 260h6M640 260h6M670 260h6M700 260h6"/></g>
+                <!-- mechanical scraper blade pushing pellets left to a collection bin -->
+                <rect x="116" y="248" width="34" height="15" rx="2" fill="#4CAF7D" opacity="0.25" stroke="#4CAF7D" stroke-opacity="0.6"/>
+                <rect x="372" y="247" width="9" height="14" rx="2" fill="#F5F5F0"/>
+                <g stroke="#F5F5F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"><path d="M368 254H158M168 249l-10 5 10 5"/></g>
+                <!-- urine runs down-slope to the right gutter -->
+                <g stroke="#4CAF7D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"><path d="M560 284h152M702 279l10 5-10 5"/></g>
+                <rect x="724" y="272" width="12" height="28" fill="#0D1F0F" stroke="#4CAF7D" stroke-opacity="0.6"/>
+              </g>
 
               <!-- LAYER 2 OPEN AIR -->
               <g>
-                <text x="100" y="262" fill="#4CAF7D" font-size="15" font-weight="700" font-family="Inter">LAYER 2 · OPEN AIR</text>
-                <text x="722" y="262" text-anchor="end" fill="#A0A0A0" font-size="13" font-family="Inter">open airway · natural cross-ventilation</text>
+                <text x="100" y="340" fill="#4CAF7D" font-size="15" font-weight="700" font-family="Inter">LAYER 2 · OPEN AIR</text>
+                <text x="724" y="340" text-anchor="end" fill="#A0A0A0" font-size="13" font-family="Inter">open airway · natural cross-ventilation</text>
                 <g stroke="#4CAF7D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
-                  <path d="M170 300h150M310 292l12 8-12 8"/>
-                  <path d="M470 318H320M460 310l-12 8 12 8"/>
-                  <path d="M500 300h150M640 292l12 8-12 8"/>
+                  <path d="M170 368h150M310 360l12 8-12 8"/>
+                  <path d="M470 386H320M460 378l-12 8 12 8"/>
+                  <path d="M500 368h150M640 360l12 8-12 8"/>
                 </g>
               </g>
 
               <!-- LAYER 3 CHICKENS -->
               <g>
-                <rect x="90" y="372" width="640" height="56" rx="6" fill="#1B4332" opacity="0.4" stroke="#2A3D22"/>
-                <!-- chicken slat strip -->
-                <rect x="98" y="416" width="624" height="12" rx="2" fill="#0D1F0F" stroke="#A0A0A0" stroke-opacity="0.5"/>
-                <g stroke="#A0A0A0" stroke-opacity="0.45" stroke-width="1.4"><path d="M110 416v12M125 416v12M140 416v12M155 416v12M170 416v12M185 416v12M200 416v12M215 416v12M230 416v12M245 416v12M260 416v12M275 416v12M290 416v12M305 416v12M320 416v12M335 416v12M350 416v12M365 416v12M380 416v12M395 416v12M410 416v12M425 416v12M440 416v12M455 416v12M470 416v12M485 416v12M500 416v12M515 416v12M530 416v12M545 416v12M560 416v12M575 416v12M590 416v12M605 416v12M620 416v12M635 416v12M650 416v12M665 416v12M680 416v12M695 416v12M710 416v12"/></g>
-                <use href="#i-chicken" x="170" y="382" width="28" height="28" style="color:#F5F5F0"/>
-                <use href="#i-chicken" x="330" y="382" width="28" height="28" style="color:#F5F5F0"/>
-                <use href="#i-chicken" x="490" y="382" width="28" height="28" style="color:#F5F5F0"/>
-                <use href="#i-chicken" x="620" y="382" width="28" height="28" style="color:#F5F5F0"/>
-                <text x="100" y="364" fill="#D4A017" font-size="15" font-weight="700" font-family="Inter">LAYER 3 · CHICKENS</text>
-                <text x="722" y="364" text-anchor="end" fill="#A0A0A0" font-size="13" font-family="Inter">3,000 broilers on plastic slats · 20 in above the sloped floor</text>
+                <text x="100" y="424" fill="#D4A017" font-size="15" font-weight="700" font-family="Inter">LAYER 3 · CHICKENS</text>
+                <text x="724" y="424" text-anchor="end" fill="#A0A0A0" font-size="13" font-family="Inter">3,000 broilers on plastic slats · clean, sealed below the deck</text>
+                <rect x="90" y="432" width="640" height="50" rx="6" fill="#1B4332" opacity="0.4" stroke="#2A3D22"/>
+                <rect x="98" y="470" width="624" height="12" rx="2" fill="#0D1F0F" stroke="#A0A0A0" stroke-opacity="0.5"/>
+                <g stroke="#A0A0A0" stroke-opacity="0.45" stroke-width="1.4"><path d="M110 470v12M125 470v12M140 470v12M155 470v12M170 470v12M185 470v12M200 470v12M215 470v12M230 470v12M245 470v12M260 470v12M275 470v12M290 470v12M305 470v12M320 470v12M335 470v12M350 470v12M365 470v12M380 470v12M395 470v12M410 470v12M425 470v12M440 470v12M455 470v12M470 470v12M485 470v12M500 470v12M515 470v12M530 470v12M545 470v12M560 470v12M575 470v12M590 470v12M605 470v12M620 470v12M635 470v12M650 470v12M665 470v12M680 470v12M695 470v12M710 470v12"/></g>
+                <use href="#i-chicken" x="170" y="440" width="26" height="26" style="color:#F5F5F0"/>
+                <use href="#i-chicken" x="330" y="440" width="26" height="26" style="color:#F5F5F0"/>
+                <use href="#i-chicken" x="500" y="440" width="26" height="26" style="color:#F5F5F0"/>
+                <use href="#i-chicken" x="620" y="440" width="26" height="26" style="color:#F5F5F0"/>
               </g>
 
               <!-- LAYER 0 PCC floor -->
               <g>
-                <path d="M90 470 L730 486 L730 506 L90 506 Z" fill="#1B4332" opacity="0.7" stroke="#2A3D22"/>
-                <path d="M90 470 L730 486" stroke="#D4A017" stroke-width="2" stroke-opacity="0.6"/>
-                <!-- gutters -->
-                <rect x="84" y="470" width="10" height="40" fill="#0D1F0F" stroke="#D4A017" stroke-opacity="0.5"/>
-                <rect x="726" y="486" width="10" height="24" fill="#0D1F0F" stroke="#D4A017" stroke-opacity="0.5"/>
-                <g stroke="#4CAF7D" stroke-width="2" stroke-linecap="round" opacity="0.8"><path d="M300 452l-14 14M286 460v8h8M520 452l14 14M534 460v8h-8"/></g>
-                <text x="410" y="498" text-anchor="middle" fill="#F5F5F0" font-size="13" font-weight="600" font-family="Inter">PCC DRAINAGE FLOOR · 2% slope → side gutters (serves both species)</text>
-                <text x="410" y="538" text-anchor="middle" fill="#A0A0A0" font-size="12" font-family="Inter">Scraped clean every 7–10 days · no litter · no ammonia · no wet build-up</text>
+                <path d="M90 524 L730 540 L730 560 L90 560 Z" fill="#1B4332" opacity="0.7" stroke="#2A3D22"/>
+                <path d="M90 524 L730 540" stroke="#D4A017" stroke-width="2" stroke-opacity="0.6"/>
+                <rect x="84" y="524" width="10" height="36" fill="#0D1F0F" stroke="#D4A017" stroke-opacity="0.5"/>
+                <rect x="726" y="540" width="10" height="20" fill="#0D1F0F" stroke="#D4A017" stroke-opacity="0.5"/>
+                <text x="410" y="551" text-anchor="middle" fill="#F5F5F0" font-size="13" font-weight="600" font-family="Inter">PCC DRAINAGE FLOOR · 2% slope → side gutters (chicken droppings)</text>
               </g>
+              <text x="410" y="596" text-anchor="middle" fill="#A0A0A0" font-size="12" font-family="Inter">Sheep urine + pellets are caught above by the deck — they never reach the birds.</text>
             </svg>
           </div>
 
           <div class="mt-4 flex gap-4 rounded-xl border border-line bg-card/40 p-5">
             <span class="feat-icon hidden h-10 w-10 shrink-0 place-items-center rounded-lg bg-gold/15 text-gold ring-1 ring-gold/25 sm:grid"><svg><use href="#i-drop"/></svg></span>
             <p class="text-sm leading-relaxed text-ink/85">
-              <strong class="text-ink">Why a raised slat floor instead of deep litter:</strong> 318 sheep produce <strong class="text-ink">382 litres of urine per day</strong>.
-              Rice-husk litter would be fully saturated by Day 27 of the 100-day sheep batch, creating anaerobic conditions fatal to
-              chickens. The raised floor lets urine and droppings pass straight through to the PCC drainage system — the same system already
-              designed for the sheep.
+              <strong class="text-ink">Two separate waste streams — nothing falls on the birds.</strong> 318 sheep produce <strong class="text-ink">382 litres of urine a day</strong> plus dry pellets. A <strong class="text-ink">catchment deck</strong> under the sheep slats — a hollow, sloped box with a perforated top — catches both: urine drops through the holes into the box and runs down-slope to a side gutter and sump (becoming liquid fertiliser for the ponds), while the dry pellets ride on top and a <strong class="text-ink">mechanical scraper clears them once a day</strong> to the composting bays. The chickens sit <strong class="text-ink">sealed below that deck</strong> on their own slats, draining only their own droppings to the PCC. The two never meet over the birds — that is what keeps the lower deck dry and ammonia-free.
             </p>
           </div>
+          <p class="mt-3 text-xs leading-relaxed text-muted">
+            <strong class="not-italic text-ink/80">Build phasing &amp; running cost:</strong> the catchment deck + daily scraper are installed per shed <em>when the chickens move in</em> (Batches 5–8) — not in Batch 1, which runs sheep-only with waste dropping to the ground floor. The daily mechanical scraper means <strong class="text-ink/80">no added scraping labour</strong>; power draw is negligible (solar-covered), plus periodic blade/cable maintenance. Costed at ≈ <strong class="text-ink/80">₹5.0 L/shed</strong> — perforated deck + frame + urine channel ≈ ₹3.75 L, mechanical daily scraper ≈ ₹1.25 L (estimate; confirm with a fabricator / automation quote).
+          </p>
           <p class="mt-3 text-xs leading-relaxed text-muted">
             <strong class="not-italic text-ink/80">Chicken flooring:</strong> poultry-grade plastic slats (~22 mm gap, anti-slip) — feet rest on the bars while droppings drop through; not bare wire, so no toe entrapment. A dry slat floor keeps feet cleaner than wet litter (the main cause of footpad lesions); the trade-off is reduced litter-foraging behaviour. Feed is served from feeders, not the floor. Costed at the existing ~₹91/sqft all-in, which already covers plastic-slat-grade flooring — no CapEx change.
           </p>
@@ -585,12 +600,12 @@
                 <tr class="bg-card/30"><td class="tnum px-4 py-2.5 font-semibold">2</td><td class="px-4 py-2.5">Shed 2 + HF trial + ingredient store</td><td class="tnum px-4 py-2.5 text-right">₹12,86,005</td><td class="px-4 py-2.5 text-muted">Reserve + profit</td></tr>
                 <tr><td class="tnum px-4 py-2.5 font-semibold">3</td><td class="px-4 py-2.5">Shed 3 + full HF complex + feed mixer</td><td class="tnum px-4 py-2.5 text-right">₹17,17,005</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
                 <tr class="bg-card/30"><td class="tnum px-4 py-2.5 font-semibold">4</td><td class="px-4 py-2.5">Shed 4 + HF Room 2 + vermicompost</td><td class="tnum px-4 py-2.5 text-right">₹15,21,005</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
-                <tr><td class="tnum px-4 py-2.5 font-semibold">5</td><td class="px-4 py-2.5">Brooding bay + Shed 1 raised plastic-slat floor</td><td class="tnum px-4 py-2.5 text-right">₹5,22,410</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
-                <tr class="bg-card/30"><td class="tnum px-4 py-2.5 font-semibold">6</td><td class="px-4 py-2.5">Shed 2 raised plastic-slat floor</td><td class="tnum px-4 py-2.5 text-right">₹2,73,910</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
-                <tr><td class="tnum px-4 py-2.5 font-semibold">7</td><td class="px-4 py-2.5">Shed 3 raised plastic-slat floor</td><td class="tnum px-4 py-2.5 text-right">₹2,73,910</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
-                <tr class="bg-card/30"><td class="tnum px-4 py-2.5 font-semibold">8</td><td class="px-4 py-2.5">Shed 4 raised plastic-slat floor — Acre 1 complete</td><td class="tnum px-4 py-2.5 text-right">₹2,73,910</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
+                <tr><td class="tnum px-4 py-2.5 font-semibold">5</td><td class="px-4 py-2.5">Brooding bay + Shed 1 plastic-slat floor + catchment deck &amp; daily scraper</td><td class="tnum px-4 py-2.5 text-right">₹10,22,410</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
+                <tr class="bg-card/30"><td class="tnum px-4 py-2.5 font-semibold">6</td><td class="px-4 py-2.5">Shed 2 plastic-slat floor + catchment deck &amp; scraper</td><td class="tnum px-4 py-2.5 text-right">₹7,73,910</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
+                <tr><td class="tnum px-4 py-2.5 font-semibold">7</td><td class="px-4 py-2.5">Shed 3 plastic-slat floor + catchment deck &amp; scraper</td><td class="tnum px-4 py-2.5 text-right">₹7,73,910</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
+                <tr class="bg-card/30"><td class="tnum px-4 py-2.5 font-semibold">8</td><td class="px-4 py-2.5">Shed 4 plastic-slat floor + catchment deck &amp; scraper — Acre 1 complete</td><td class="tnum px-4 py-2.5 text-right">₹7,73,910</td><td class="px-4 py-2.5 text-muted">Profits</td></tr>
               </tbody>
-              <tfoot><tr class="border-t border-gold/40 bg-gold/10"><td class="px-4 py-3 font-semibold text-gold" colspan="2">Total Acre 1</td><td class="tnum px-4 py-3 text-right text-lg font-extrabold text-gold">₹79,44,160</td><td></td></tr></tfoot>
+              <tfoot><tr class="border-t border-gold/40 bg-gold/10"><td class="px-4 py-3 font-semibold text-gold" colspan="2">Total Acre 1</td><td class="tnum px-4 py-3 text-right text-lg font-extrabold text-gold">₹99,44,160</td><td></td></tr></tfoot>
             </table>
           </div>
         </div>
@@ -813,7 +828,7 @@
         <!-- 4.6 Expansion -->
         <div class="reveal">
           <h3 class="mb-1 text-lg font-semibold sm:text-xl">4.6 · 5-Acre Expansion</h3>
-          <p class="mb-5 text-sm text-muted">Each new acre (2–5) is turnkey, built complete with solar — <span class="tnum text-gold font-medium">₹88,75,780</span> each, funded entirely from operating profits.</p>
+          <p class="mb-5 text-sm text-muted">Each new acre (2–5) is turnkey, built complete with solar — <span class="tnum text-gold font-medium">₹1,08,75,780</span> each, funded entirely from operating profits.</p>
 
           <!-- expansion milestone cards -->
           <div class="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
@@ -834,6 +849,7 @@
                   <tr><td class="px-4 py-2">Plastic slats (4 × 797 × ₹380)</td><td class="tnum px-4 py-2 text-right">₹12,11,440</td></tr>
                   <tr class="bg-card/30"><td class="px-4 py-2">Troughs + drinkers (4 sheds)</td><td class="tnum px-4 py-2 text-right">₹3,55,000</td></tr>
                   <tr><td class="px-4 py-2">4 chicken raised plastic-slat floors</td><td class="tnum px-4 py-2 text-right">₹10,95,640</td></tr>
+                  <tr class="bg-card/30"><td class="px-4 py-2">4 catchment decks + daily scrapers</td><td class="tnum px-4 py-2 text-right">₹20,00,000</td></tr>
                   <tr class="bg-card/30"><td class="px-4 py-2">Brooding bay</td><td class="tnum px-4 py-2 text-right">₹2,48,500</td></tr>
                   <tr><td class="px-4 py-2">Borewell (300 ft + 2HP pump)</td><td class="tnum px-4 py-2 text-right">₹2,00,000</td></tr>
                   <tr class="bg-card/30"><td class="px-4 py-2">3 × 5,000 L tanks + tower</td><td class="tnum px-4 py-2 text-right">₹1,30,000</td></tr>
@@ -846,22 +862,22 @@
                   <tr><td class="px-4 py-2">Airway paving + perimeter fence</td><td class="tnum px-4 py-2 text-right">₹1,30,000</td></tr>
                   <tr class="bg-solar/[0.07]"><td class="px-4 py-2 text-solar">Solar (20 kW on shed roofs)</td><td class="tnum px-4 py-2 text-right text-solar">₹11,00,000</td></tr>
                 </tbody>
-                <tfoot><tr class="border-t border-gold/40 bg-gold/10"><td class="px-4 py-3 font-semibold text-gold">Total per new acre</td><td class="tnum px-4 py-3 text-right text-base font-extrabold text-gold">₹88,75,780</td></tr></tfoot>
+                <tfoot><tr class="border-t border-gold/40 bg-gold/10"><td class="px-4 py-3 font-semibold text-gold">Total per new acre</td><td class="tnum px-4 py-3 text-right text-base font-extrabold text-gold">₹1,08,75,780</td></tr></tfoot>
               </table>
             </div>
             <div class="overflow-x-auto rounded-2xl border border-line">
               <table class="w-full min-w-[480px] text-sm">
                 <thead><tr class="bg-card2/60 text-left"><th class="px-4 py-3 font-medium">5-acre capex timeline</th><th class="px-4 py-3 text-right font-medium">Investment</th><th class="px-4 py-3 text-right font-medium">Running total</th></tr></thead>
                 <tbody class="divide-y divide-line text-[13px]">
-                  <tr><td class="px-4 py-2.5">Acre 1 Batches 1–8 (2027–30)</td><td class="tnum px-4 py-2.5 text-right">₹79,44,160</td><td class="tnum px-4 py-2.5 text-right text-muted">₹79,44,160</td></tr>
-                  <tr class="bg-card/30"><td class="px-4 py-2.5">Acre 2 turnkey (Oct 2030)</td><td class="tnum px-4 py-2.5 text-right">₹88,75,780</td><td class="tnum px-4 py-2.5 text-right text-muted">₹1,68,19,940</td></tr>
-                  <tr><td class="px-4 py-2.5">Acre 3 turnkey (Jun 2031)</td><td class="tnum px-4 py-2.5 text-right">₹88,75,780</td><td class="tnum px-4 py-2.5 text-right text-muted">₹2,56,95,720</td></tr>
-                  <tr class="bg-card/30"><td class="px-4 py-2.5">Acre 4 turnkey (Feb 2032)</td><td class="tnum px-4 py-2.5 text-right">₹88,75,780</td><td class="tnum px-4 py-2.5 text-right text-muted">₹3,45,71,500</td></tr>
-                  <tr><td class="px-4 py-2.5">Acre 5 turnkey (Oct 2032)</td><td class="tnum px-4 py-2.5 text-right">₹88,75,780</td><td class="tnum px-4 py-2.5 text-right text-muted">₹4,34,47,280</td></tr>
-                  <tr class="bg-card/30"><td class="px-4 py-2.5">2 farm ponds (net subsidy)</td><td class="tnum px-4 py-2.5 text-right">₹2,17,500</td><td class="tnum px-4 py-2.5 text-right text-muted">₹4,36,64,780</td></tr>
-                  <tr><td class="px-4 py-2.5">Solar retrofit Acre 1</td><td class="tnum px-4 py-2.5 text-right">₹11,00,000</td><td class="tnum px-4 py-2.5 text-right text-muted">₹4,47,64,780</td></tr>
+                  <tr><td class="px-4 py-2.5">Acre 1 Batches 1–8 (2027–30)</td><td class="tnum px-4 py-2.5 text-right">₹99,44,160</td><td class="tnum px-4 py-2.5 text-right text-muted">₹99,44,160</td></tr>
+                  <tr class="bg-card/30"><td class="px-4 py-2.5">Acre 2 turnkey (Oct 2030)</td><td class="tnum px-4 py-2.5 text-right">₹1,08,75,780</td><td class="tnum px-4 py-2.5 text-right text-muted">₹2,08,19,940</td></tr>
+                  <tr><td class="px-4 py-2.5">Acre 3 turnkey (Jun 2031)</td><td class="tnum px-4 py-2.5 text-right">₹1,08,75,780</td><td class="tnum px-4 py-2.5 text-right text-muted">₹3,16,95,720</td></tr>
+                  <tr class="bg-card/30"><td class="px-4 py-2.5">Acre 4 turnkey (Feb 2032)</td><td class="tnum px-4 py-2.5 text-right">₹1,08,75,780</td><td class="tnum px-4 py-2.5 text-right text-muted">₹4,25,71,500</td></tr>
+                  <tr><td class="px-4 py-2.5">Acre 5 turnkey (Oct 2032)</td><td class="tnum px-4 py-2.5 text-right">₹1,08,75,780</td><td class="tnum px-4 py-2.5 text-right text-muted">₹5,34,47,280</td></tr>
+                  <tr class="bg-card/30"><td class="px-4 py-2.5">2 farm ponds (net subsidy)</td><td class="tnum px-4 py-2.5 text-right">₹2,17,500</td><td class="tnum px-4 py-2.5 text-right text-muted">₹5,36,64,780</td></tr>
+                  <tr><td class="px-4 py-2.5">Solar retrofit Acre 1</td><td class="tnum px-4 py-2.5 text-right">₹11,00,000</td><td class="tnum px-4 py-2.5 text-right text-muted">₹5,47,64,780</td></tr>
                 </tbody>
-                <tfoot><tr class="border-t border-gold/40 bg-gold/10"><td class="px-4 py-3 font-semibold text-gold">Grand total</td><td class="tnum px-4 py-3 text-right font-extrabold text-gold" colspan="2">₹4.48 Crores</td></tr></tfoot>
+                <tfoot><tr class="border-t border-gold/40 bg-gold/10"><td class="px-4 py-3 font-semibold text-gold">Grand total</td><td class="tnum px-4 py-3 text-right font-extrabold text-gold" colspan="2">₹5.48 Crores</td></tr></tfoot>
               </table>
             </div>
           </div>
